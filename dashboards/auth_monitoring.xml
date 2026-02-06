@@ -1,0 +1,6 @@
+SELECT sourceip, count(*) as LoginAttempts 
+FROM events 
+WHERE eventtype = 'LoginFailure' 
+GROUP BY sourceip 
+HAVING LoginAttempts > 10 
+LAST 5 MINUTES
